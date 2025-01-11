@@ -32,7 +32,7 @@ namespace Test
             var solution = new Solution();
             var user1 = new List<List<int>> { new List<int> { 2, 5 }, new List<int> { 6, 10 } };
             var user2 = new List<List<int>> { new List<int> { 1, 6 }, new List<int> { 8, 12 } };
-            var expected = new List<List<int>> { new List<int> { 2, 5 }, new List<int> { 8, 10 } };
+            var expected = new List<List<int>> { new List<int> { 2, 5 }, new List<int> { 6, 6 }, new List<int> { 8, 10 } };
 
             Assert.Equal(expected, solution.Intersection(user1, user2));
         }
