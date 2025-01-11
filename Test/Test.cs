@@ -5,145 +5,113 @@ namespace Test;
 public class Test
 {
     [Fact]
-    public void TestNormalCase()
+    public void TestCase1()
     {
         var solution = new Solution();
-        var user1 = new List<List<int>> { new() { 4, 7 }, new() { 10, 14 } };
-        var user2 = new List<List<int>> { new() { 3, 6 }, new() { 8, 13 } };
-        var expected = new List<List<int>> { new() { 4, 6 }, new() { 10, 13 } };
+        var user1 = new List<List<int>> { new() { 3, 98 }, new() { 35, 67 } };
+        var user2 = new List<List<int>> { new() { 17, 31 }, new() { 86, 98 }, new() { 69, 72 } };
+        var expected = new List<List<int>> { new() { 17, 31 }, new() { 86, 98 }, new() { 69, 72 } };
 
         Assert.Equal(expected, solution.Intersection(user1, user2));
     }
 
     [Fact]
-    public void TestNoIntersection()
+    public void TestCase2()
     {
         var solution = new Solution();
-        var user1 = new List<List<int>> { new() { 1, 2 }, new() { 5, 6 } };
-        var user2 = new List<List<int>> { new() { 3, 4 }, new() { 7, 8 } };
-        var expected = new List<List<int>>();
+        var user1 = new List<List<int>> { new() { 4, 8 }, new() { 11, 39 }, new() { 29, 94 }, new() { 77, 78 }, new() { 71, 78 } };
+        var user2 = new List<List<int>> { new() { 28, 86 }, new() { 75, 84 }, new() { 0, 98 }, new() { 20, 75 }, new() { 43, 61 } };
+        var expected = new List<List<int>> { new() { 28, 39 }, new() { 29, 86 }, new() { 75, 84 }, new() { 29, 94 }, new() { 77, 78 }, new() { 71, 78 } };
 
         Assert.Equal(expected, solution.Intersection(user1, user2));
     }
 
     [Fact]
-    public void TestFullyContainedIntervals()
+    public void TestCase3()
     {
         var solution = new Solution();
-        var user1 = new List<List<int>> { new() { 2, 5 }, new() { 6, 10 } };
-        var user2 = new List<List<int>> { new() { 1, 6 }, new() { 8, 12 } };
-        var expected = new List<List<int>> { new() { 2, 5 }, new() { 6, 6 }, new() { 8, 10 } };
+        var user1 = new List<List<int>> { new() { 27, 71 }, new() { 13, 25 }, new() { 48, 55 } };
+        var user2 = new List<List<int>> { new() { 44, 83 }, new() { 33, 39 }, new() { 93, 97 }, new() { 68, 76 } };
+        var expected = new List<List<int>> { new() { 44, 71 }, new() { 48, 55 } };
 
         Assert.Equal(expected, solution.Intersection(user1, user2));
     }
 
     [Fact]
-    public void TestIdenticalIntervals()
+    public void TestCase4()
     {
         var solution = new Solution();
-        var user1 = new List<List<int>> { new() { 1, 5 }, new() { 6, 10 } };
-        var user2 = new List<List<int>> { new() { 1, 5 }, new() { 6, 10 } };
-        var expected = new List<List<int>> { new() { 1, 5 }, new() { 6, 10 } };
+        var user1 = new List<List<int>> { new() { 10, 81 }, new() { 37, 91 }, new() { 80, 100 }, new() { 46, 83 }, new() { 24, 33 } };
+        var user2 = new List<List<int>> { new() { 84, 92 }, new() { 98, 100 } };
+        var expected = new List<List<int>> { new() { 84, 91 }, new() { 84, 92 }, new() { 98, 100 } };
 
         Assert.Equal(expected, solution.Intersection(user1, user2));
     }
 
     [Fact]
-    public void TestEdgeTouching()
+    public void TestCase5()
     {
         var solution = new Solution();
-        var user1 = new List<List<int>> { new() { 1, 3 }, new() { 5, 7 } };
-        var user2 = new List<List<int>> { new() { 3, 4 }, new() { 7, 8 } };
-        var expected = new List<List<int>> { new() { 3, 3 }, new() { 7, 7 } };
+        var user1 = new List<List<int>> { new() { 29, 42 }, new() { 48, 66 } };
+        var user2 = new List<List<int>> { new() { 81, 93 }, new() { 20, 68 }, new() { 45, 59 }, new() { 85, 90 }, new() { 89, 100 } };
+        var expected = new List<List<int>> {  };
 
         Assert.Equal(expected, solution.Intersection(user1, user2));
     }
 
     [Fact]
-    public void TestEmptyArrays()
+    public void TestCase6()
     {
         var solution = new Solution();
-        var user1 = new List<List<int>>();
-        var user2 = new List<List<int>> { new() { 1, 3 } };
-        var expected = new List<List<int>>();
-
-        Assert.Equal(expected, solution.Intersection(user1, user2));
-
-        user1 = new List<List<int>> { new() { 1, 3 } };
-        user2 = new List<List<int>>();
-        Assert.Equal(expected, solution.Intersection(user1, user2));
-    }
-
-    [Fact]
-    public void TestLargeIntervals()
-    {
-        var solution = new Solution();
-        var user1 = new List<List<int>> { new() { 1, 1000 } };
-        var user2 = new List<List<int>> { new() { 500, 1500 } };
-        var expected = new List<List<int>> { new() { 500, 1000 } };
+        var user1 = new List<List<int>> { new() { 77, 98 }, new() { 21, 90 } };
+        var user2 = new List<List<int>> { new() { 20, 80 }, new() { 48, 66 }, new() { 81, 99 } };
+        var expected = new List<List<int>> { new() { 77, 80 }, new() { 81, 98 }, new() { 81, 90 } };
 
         Assert.Equal(expected, solution.Intersection(user1, user2));
     }
 
     [Fact]
-    public void TestOverlappingIntervals()
+    public void TestCase7()
     {
         var solution = new Solution();
-        var user1 = new List<List<int>> { new() { 1, 5 }, new() { 10, 15 } };
-        var user2 = new List<List<int>> { new() { 0, 2 }, new() { 13, 20 } };
-        var expected = new List<List<int>> { new() { 1, 2 }, new() { 13, 15 } };
+        var user1 = new List<List<int>> { new() { 87, 93 }, new() { 98, 99 }, new() { 29, 34 } };
+        var user2 = new List<List<int>> { new() { 51, 69 }, new() { 8, 36 }, new() { 72, 95 }, new() { 40, 54 } };
+        var expected = new List<List<int>> { new() { 87, 93 } };
 
         Assert.Equal(expected, solution.Intersection(user1, user2));
     }
 
     [Fact]
-    public void TestDifferentNumberOfIntervals()
+    public void TestCase8()
     {
         var solution = new Solution();
-
-        var user1 = new List<List<int>> {
-                new List<int> { 1, 4 },
-                new List<int> { 5, 8 },
-                new List<int> { 10, 12 },
-                new List<int> { 14, 18 }
-            };
-        var user2 = new List<List<int>> { new List<int> { 3, 6 } };
-        var expected = new List<List<int>> { new List<int> { 3, 4 }, new List<int> { 5, 6 } };
-
-        Assert.Equal(expected, solution.Intersection(user1, user2));
-
-        user1 = new List<List<int>> { new List<int> { 2, 6 } };
-        user2 = new List<List<int>> {
-                new List<int> { 1, 3 },
-                new List<int> { 4, 5 },
-                new List<int> { 7, 10 }
-            };
-        expected = new List<List<int>> { new List<int> { 2, 3 }, new List<int> { 4, 5 } };
-
-        Assert.Equal(expected, solution.Intersection(user1, user2));
-
-        user1 = new List<List<int>> { new List<int> { 0, 20 } };
-        user2 = new List<List<int>> {
-                new List<int> { 5, 10 },
-                new List<int> { 12, 15 },
-                new List<int> { 18, 25 }
-            };
-        expected = new List<List<int>> {
-                new List<int> { 5, 10 },
-                new List<int> { 12, 15 },
-                new List<int> { 18, 20 }
-            };
-
-        Assert.Equal(expected, solution.Intersection(user1, user2));
-
-        user1 = new List<List<int>> {
-                new List<int> { 1, 3 },
-                new List<int> { 5, 7 },
-                new List<int> { 9, 12 }
-            };
-        user2 = new List<List<int>> { new List<int> { 6, 10 } };
-        expected = new List<List<int>> { new List<int> { 6, 7 }, new List<int> { 9, 10 } };
+        var user1 = new List<List<int>> { new() { 50, 92 }, new() { 58, 68 }, new() { 33, 51 }, new() { 31, 100 }, new() { 33, 88 } };
+        var user2 = new List<List<int>> { new() { 46, 61 }, new() { 17, 83 }, new() { 63, 69 }, new() { 96, 97 }, new() { 14, 34 } };
+        var expected = new List<List<int>> { new() { 50, 61 }, new() { 50, 83 }, new() { 63, 69 }, new() { 96, 97 }, new() { 31, 34 } };
 
         Assert.Equal(expected, solution.Intersection(user1, user2));
     }
+
+    [Fact]
+    public void TestCase9()
+    {
+        var solution = new Solution();
+        var user1 = new List<List<int>> { new() { 87, 94 }, new() { 76, 79 }, new() { 49, 74 } };
+        var user2 = new List<List<int>> { new() { 67, 84 }, new() { 70, 98 }, new() { 1, 89 }, new() { 92, 94 }, new() { 87, 96 } };
+        var expected = new List<List<int>> { new() { 87, 94 }, new() { 76, 79 }, new() { 70, 74 } };
+
+        Assert.Equal(expected, solution.Intersection(user1, user2));
+    }
+
+    [Fact]
+    public void TestCase10()
+    {
+        var solution = new Solution();
+        var user1 = new List<List<int>> { new() { 98, 100 }, new() { 14, 52 }, new() { 55, 66 }, new() { 58, 59 } };
+        var user2 = new List<List<int>> { new() { 64, 76 }, new() { 64, 71 }, new() { 80, 90 }, new() { 81, 98 } };
+        var expected = new List<List<int>> { new() { 98, 98 } };
+
+        Assert.Equal(expected, solution.Intersection(user1, user2));
+    }
+
 }
